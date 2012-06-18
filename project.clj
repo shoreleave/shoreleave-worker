@@ -1,4 +1,4 @@
-(defproject shoreleave-worker "0.2.1"
+(defproject shoreleave/shoreleave-worker "0.2.1"
   :description "A smarter client-side with ClojureScript : Shoreleave's embedded web worker utilities"
   :url "http://github.com/shoreleave"
   :license {:name "Eclipse Public License - v 1.0"
@@ -8,10 +8,8 @@
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [shoreleave/shoreleave-core "0.2.1"]
                  [shoreleave/shoreleave-browser "0.2.1"]]
-  :dev-dependencies [[vimclojure/server "2.3.3" :exclusions [org.clojure/clojure]] 
-                     ;[cdt "1.2.6.2-SNAPSHOT"]
+  :dev-dependencies [;[cdt "1.2.6.2-SNAPSHOT"]
                      ;[lein-cdt "1.0.0"] ; use lein cdt to attach
                      ;[lein-autodoc "0.9.0"]
-                     [lein-marginalia "0.7.1"]]
-  :plugins  [[lein-cljsbuild "0.2.1"]])
+                     [lein-marginalia "0.7.1"]])
 
