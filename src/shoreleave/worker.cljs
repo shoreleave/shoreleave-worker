@@ -3,6 +3,9 @@
             [shoreleave.browser.blob :as blob]
             [cljs.reader :as reader]))
 
+;; Turn blobbing on
+(blob/enable-blobbuilder!)
+
 (deftype WorkerFn [F eworker res-atom-vector]
   
   IWithMeta
