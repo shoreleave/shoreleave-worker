@@ -1,4 +1,4 @@
-(defproject shoreleave/shoreleave-worker "0.3,0"
+(defproject shoreleave/shoreleave-worker "0.3.0"
   :description "A smarter client-side with ClojureScript : Shoreleave's embedded web worker utilities"
   :url "http://github.com/shoreleave"
   :license {:name "Eclipse Public License - v 1.0"
