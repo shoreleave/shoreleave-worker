@@ -1,6 +1,5 @@
 (ns shoreleave.worker
-  (:require [shoreleave.efunction :as efn]
-            [shoreleave.browser.blob :as blob]
+  (:require [shoreleave.browser.blob :as blob]
             [cljs.reader :as reader]))
 
 (deftype WorkerFn [F eworker res-atom-vector]
@@ -30,8 +29,7 @@
   ;  (-notify-watches (.-res-atom-vector WFn) oldval newval))
   
   IHash
-  (-hash [WFn] (goog.getUid (.-f (.-F WFn))))
-  )
+  (-hash [WFn] (goog.getUid (.-f (.-F WFn)))))
 
 ;; DO NO USE THIS!!!!
 ;; I still need to find a way to inject/import in the JS behind namespaces
@@ -40,12 +38,10 @@
   (let [f-str (str f)
         fn-str (str "var swfn = " f-str ";"
                     "self.onmessage = function(c){self.postMessage(swfn(c.data));return c};")
-        bb (blob/blob-builder)
-        *b (conj! bb fn-str)
-        blobb (blob/blob bb)
+        blobb (blob/blob fn-str)
         agg (atom [])
         w (js/Worker. (blob/object-url! blobb))
         *w (set! (.-onmessage w) #(swap! agg conj (.-data %)))
-        wfn (WorkerFn. (efn/Function. f {}) w agg)]
+        wfn (WorkerFn. f w agg)]
     wfn))
 
